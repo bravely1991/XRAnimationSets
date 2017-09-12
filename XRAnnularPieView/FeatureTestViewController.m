@@ -21,8 +21,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     XRAnnularPieView *annularView = [[XRAnnularPieView alloc] initWithFrame:CGRectMake(0, 100, 320, 320)];
-    annularView.itemArray = [NSMutableArray arrayWithObjects:@"自己", @"其他", nil];
-    annularView.valueArray = [NSMutableArray arrayWithObjects:@"0.9", @"0.1", nil];
+    annularView.itemArray = [NSMutableArray arrayWithObjects:@"张三", @"李四", @"宝宝", nil];
+    annularView.valueArray = [NSMutableArray arrayWithObjects:@"0.5", @"0.3", @"0.2", nil];
+    annularView.colorArray = [NSMutableArray arrayWithObjects:[UIColor redColor], [UIColor greenColor], [UIColor blueColor], nil];
+    annularView.showAnimation = YES;
+    annularView.showitemLabel = YES;
     [annularView strokePath];
     
 
