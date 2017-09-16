@@ -12,6 +12,9 @@
 
 @property (nonatomic, assign) CGPoint centerPoint;
 @property (nonatomic, assign) CGFloat itemLabelRadius;
+@property (nonatomic, assign) CGFloat imageRadius;
+@property (nonatomic, assign) CGFloat pieRadius;
+
 
 @property (nonatomic, strong) NSMutableArray *startAngleArray;
 @property (nonatomic, strong) NSMutableArray *itemLabelCenterArray;
@@ -22,25 +25,21 @@
 
 @end
 
-
 #define toRad(angle) (angle * M_PI / 180)
 
 @implementation XRAnnularPieView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor yellowColor];
         self.centerPoint = CGPointMake(frame.size.width/2, frame.size.height/2);
-        self.lineWidth = 40;
-        self.radius = 80;
-        self.itemLabelRadius = self.radius + 50;
+        
+        self.radius = MIN(frame.size.width, frame.size.height)/2.0 - 30;
+        self.imageRadius = self.radius *0.4;
+        self.lineWidth = self.radius - self.imageRadius;
+        self.pieRadius = self.imageRadius + self.lineWidth/2.0;
+        self.itemLabelRadius = MIN(frame.size.width, frame.size.height)/2.0;
+        
         self.startAngle = toRad(-90);
         self.totalDuration = 1.5f;
         
@@ -55,7 +54,12 @@
     [self removeAllSubLayers];
     
     [self drawDefaultPie];
-    [self loadSubviewLayers];
+
+//    [self loadSubviewLayers];
+    
+    [self loadSingleLayers];
+    [self drawImage];
+
     
 }
 
@@ -70,6 +74,18 @@
         }
     }
 }
+
+- (void)loadSingleLayers {
+    if (self.isShowAnimation) {
+        NSDictionary * userInfo = @{@"index":@(0)};
+        NSTimer * timer = [NSTimer timerWithTimeInterval:[self.timeStartArray[0] floatValue] target:self selector:@selector(timerAction:) userInfo:userInfo repeats:NO];
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    }else {
+        [self drawEachPieWithIndex:0];
+    }
+
+}
+
 
 #pragma mark - 定时器
 
@@ -110,19 +126,53 @@
 }
 
 - (void)drawDefaultPie {
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.centerPoint radius:self.radius startAngle:0 endAngle:2*M_PI clockwise:YES];
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.centerPoint radius:self.pieRadius startAngle:0 endAngle:2*M_PI clockwise:YES];
     CAShapeLayer *shapeLayer = [CAShapeLayer new];
     shapeLayer.path = [path CGPath];
     shapeLayer.lineWidth = self.lineWidth;
-    shapeLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+    shapeLayer.strokeColor = ((UIColor *)self.colorArray[1]).CGColor;
     shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    [self.layer addSublayer:shapeLayer];
+}
+
+- (void)drawImage {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.imageRadius*2, self.imageRadius*2)];
+    imageView.image = [UIImage imageNamed:@"60-2"];
+    imageView.layer.cornerRadius = self.imageRadius;
+    imageView.layer.masksToBounds = YES;
+    imageView.center = self.centerPoint;
+    [self addSubview:imageView];
+    
+    UIBezierPath *bezier = [UIBezierPath bezierPath];
+    [bezier addArcWithCenter:self.centerPoint radius:self.imageRadius+3 startAngle:0 endAngle:2 * M_PI clockwise:YES];
+    
+    CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
+    shapeLayer.path = bezier.CGPath;
+    shapeLayer.lineWidth = 6;
+    shapeLayer.strokeColor = [UIColor colorWithWhite:1 alpha:0.3].CGColor;
+    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    
+    [self.layer addSublayer:shapeLayer];
+    
+}
+
+- (void)drawWhiteColor {
+    UIBezierPath *bezier = [UIBezierPath bezierPath];
+    [bezier addArcWithCenter:self.centerPoint radius:self.imageRadius+20 startAngle:0 endAngle:2 * M_PI clockwise:YES];
+    
+    CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
+    shapeLayer.path = bezier.CGPath;
+    shapeLayer.lineWidth = 2.5;
+    shapeLayer.strokeColor = [UIColor whiteColor].CGColor;
+    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    
     [self.layer addSublayer:shapeLayer];
 }
 
 - (void)drawEachPieWithIndex:(NSInteger)index {
     CGFloat startAngle = [self.startAngleArray[index] floatValue];
     CGFloat endAngle = [self.endAngleArray[index] floatValue];
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.centerPoint radius:self.radius startAngle:startAngle endAngle:endAngle  clockwise:YES];
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.centerPoint radius:self.pieRadius startAngle:startAngle endAngle:endAngle  clockwise:YES];
     CAShapeLayer *shapeLayer = [CAShapeLayer new];
     shapeLayer.path = [path CGPath];
     shapeLayer.lineWidth = self.lineWidth;
