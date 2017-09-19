@@ -1,0 +1,60 @@
+//
+//  PrefixHeader.pch
+//  XRAnimationSets
+//
+//  Created by brave on 2017/9/19.
+//  Copyright © 2017年 brave. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "XRAnnularPieViewController.h"
+#import "XRSuccessViewController.h"
+
+#import "UIImage+Category.h"
+
+#import "Masonry.h"
+
+#define XRFont(size) [UIFont systemFontOfSize:(size)]
+#define XRBoldFont(size) [UIFont boldSystemFontOfSize:(size)]
+
+
+#define XRColorRGBA(r, g, b, a)           [UIColor colorWithRed:(r) / 255.f green:(g) / 255.f blue:(b) / 255.f alpha:(a)]
+#define XRColorRGB(r, g, b)               XRColorRGBA((r), (g), (b), 1.f)
+#define XRColor0xRGB(rgb)                 XRColorRGBA((rgb) / 0x10000, ((rgb) % 0x10000) / 0x100, (rgb) % 0x100, 1.f)
+#define XRColor0xRGBA(rgb, a)             XRColorRGBA((rgb) / 0x10000, ((rgb) % 0x10000) / 0x100, (rgb) % 0x100, a)
+#define XRColor(c)                        XRColorRGBA((c), (c), (c), 1.f)
+#define XRColorBlackWithAlpha(a)          [UIColor colorWithWhite:0.f alpha:a]
+#define XRColorWhiteWithAlpha(a)          [UIColor colorWithWhite:1.f alpha:a]
+
+
+#define XRTextGrayColor XRColorRGB(103, 103, 103)
+#define XRTextGreenColor XRColorRGB(0, 179, 18)
+#define XRTextRedColor XRColorRGB(218, 43, 48)
+#define XRTextOrangeColor XRColorRGB(234, 144, 0)
+#define XRTextBlueColor XRColorRGB(0, 122, 222)
+
+#define XRBackgroundOrangeColor XRColorRGB(234, 149, 36)
+#define XRBackgroundOrangeLightColor XRColorRGB(253, 224, 161)
+#define XRBackgroundGrayColor XRColorRGB(228, 228, 228)
+
+
+#define XRBackgroundLightGrayColor XRColor0xRGB(0xf5f5f5)
+#define XRBackgroundRedColor XRColor0xRGB(0xD43745)
+
+#define XRTextContentBlackColor XRColorRGB(84, 84, 84)
+#define XRTextContentGrayColor XRColorRGB(161, 161, 161)
+
+
+
+#define XRWidth [UIScreen mainScreen].bounds.size.width
+#define XRHeight [UIScreen mainScreen].bounds.size.height
+
+
+
+
+#endif /* PrefixHeader_pch */

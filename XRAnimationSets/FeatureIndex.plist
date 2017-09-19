@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>featureName</key>
+		<string>环形单项占比图</string>
+		<key>featureClass</key>
+		<string>XRAnnularPieSingleViewController</string>
+	</dict>
+	<dict>
+		<key>featureName</key>
+		<string>环形展开分布图</string>
+		<key>featureClass</key>
+		<string>XRAnnularPieViewController</string>
+	</dict>
+	<dict>
+		<key>featureName</key>
+		<string>成功动画结果页</string>
+		<key>featureClass</key>
+		<string>XRSuccessViewController</string>
+	</dict>
+</array>
+</plist>

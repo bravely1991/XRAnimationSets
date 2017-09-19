@@ -22,6 +22,11 @@
 		E929B5AE1F71004500CC8A66 /* XRSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5AB1F71004500CC8A66 /* XRSuccessViewController.m */; };
 		E929B5B31F71006E00CC8A66 /* XRAnnularPieView.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5B01F71006E00CC8A66 /* XRAnnularPieView.m */; };
 		E929B5B41F71006E00CC8A66 /* XRSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5B21F71006E00CC8A66 /* XRSuccessView.m */; };
+		E929B5B61F71076F00CC8A66 /* FeatureIndex.plist in Resources */ = {isa = PBXBuildFile; fileRef = E929B5B51F71076F00CC8A66 /* FeatureIndex.plist */; };
+		E929B5BA1F7108C300CC8A66 /* XRFeatureIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5B91F7108C300CC8A66 /* XRFeatureIndexModel.m */; };
+		E929B5C01F7115B100CC8A66 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5BF1F7115B100CC8A66 /* UIImage+Category.m */; };
+		E929B5C31F7118A100CC8A66 /* XRAnnularPieSingleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5C21F7118A100CC8A66 /* XRAnnularPieSingleViewController.m */; };
+		E929B5C61F711A9C00CC8A66 /* XRAnnularPieSingleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5C51F711A9C00CC8A66 /* XRAnnularPieSingleView.m */; };
 		E9CB07871F63D23500ED32AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CB07861F63D23500ED32AC /* main.m */; };
 		E9CB078A1F63D23500ED32AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CB07891F63D23500ED32AC /* AppDelegate.m */; };
 		E9CB078D1F63D23500ED32AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CB078C1F63D23500ED32AC /* ViewController.m */; };
@@ -66,6 +71,16 @@
 		E929B5B01F71006E00CC8A66 /* XRAnnularPieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRAnnularPieView.m; sourceTree = "<group>"; };
 		E929B5B11F71006E00CC8A66 /* XRSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRSuccessView.h; sourceTree = "<group>"; };
 		E929B5B21F71006E00CC8A66 /* XRSuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRSuccessView.m; sourceTree = "<group>"; };
+		E929B5B51F71076F00CC8A66 /* FeatureIndex.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeatureIndex.plist; sourceTree = "<group>"; };
+		E929B5B81F7108C300CC8A66 /* XRFeatureIndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRFeatureIndexModel.h; sourceTree = "<group>"; };
+		E929B5B91F7108C300CC8A66 /* XRFeatureIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRFeatureIndexModel.m; sourceTree = "<group>"; };
+		E929B5BB1F710ED400CC8A66 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		E929B5BE1F7115B100CC8A66 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
+		E929B5BF1F7115B100CC8A66 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		E929B5C11F7118A100CC8A66 /* XRAnnularPieSingleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRAnnularPieSingleViewController.h; sourceTree = "<group>"; };
+		E929B5C21F7118A100CC8A66 /* XRAnnularPieSingleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRAnnularPieSingleViewController.m; sourceTree = "<group>"; };
+		E929B5C41F711A9C00CC8A66 /* XRAnnularPieSingleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRAnnularPieSingleView.h; sourceTree = "<group>"; };
+		E929B5C51F711A9C00CC8A66 /* XRAnnularPieSingleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRAnnularPieSingleView.m; sourceTree = "<group>"; };
 		E9CB07821F63D23500ED32AC /* XRAnimationSets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRAnimationSets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CB07861F63D23500ED32AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E9CB07881F63D23500ED32AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +150,8 @@
 			children = (
 				E929B5A81F71004500CC8A66 /* XRFeatureIndexViewController.h */,
 				E929B5A91F71004500CC8A66 /* XRFeatureIndexViewController.m */,
+				E929B5C11F7118A100CC8A66 /* XRAnnularPieSingleViewController.h */,
+				E929B5C21F7118A100CC8A66 /* XRAnnularPieSingleViewController.m */,
 				E929B5A61F71004500CC8A66 /* XRAnnularPieViewController.h */,
 				E929B5A71F71004500CC8A66 /* XRAnnularPieViewController.m */,
 				E929B5AA1F71004500CC8A66 /* XRSuccessViewController.h */,
@@ -146,6 +163,8 @@
 		E929B5A51F70FFFD00CC8A66 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E929B5C41F711A9C00CC8A66 /* XRAnnularPieSingleView.h */,
+				E929B5C51F711A9C00CC8A66 /* XRAnnularPieSingleView.m */,
 				E929B5AF1F71006E00CC8A66 /* XRAnnularPieView.h */,
 				E929B5B01F71006E00CC8A66 /* XRAnnularPieView.m */,
 				E929B5B11F71006E00CC8A66 /* XRSuccessView.h */,
@@ -154,9 +173,37 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E929B5B71F7108A500CC8A66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E929B5B81F7108C300CC8A66 /* XRFeatureIndexModel.h */,
+				E929B5B91F7108C300CC8A66 /* XRFeatureIndexModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E929B5BC1F71135300CC8A66 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E929B5BD1F7115B100CC8A66 /* Category */,
+			);
+			name = Tool;
+			path = XRAnimationSets/Tool;
+			sourceTree = "<group>";
+		};
+		E929B5BD1F7115B100CC8A66 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E929B5BE1F7115B100CC8A66 /* UIImage+Category.h */,
+				E929B5BF1F7115B100CC8A66 /* UIImage+Category.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		E9CB07791F63D23500ED32AC = {
 			isa = PBXGroup;
 			children = (
+				E929B5BC1F71135300CC8A66 /* Tool */,
 				E929B57C1F70C9A100CC8A66 /* Vender */,
 				E9CB07841F63D23500ED32AC /* XRAnimationSets */,
 				E9CB07831F63D23500ED32AC /* Products */,
@@ -174,6 +221,7 @@
 		E9CB07841F63D23500ED32AC /* XRAnimationSets */ = {
 			isa = PBXGroup;
 			children = (
+				E929B5B71F7108A500CC8A66 /* Model */,
 				E929B5A41F70FFFD00CC8A66 /* Controller */,
 				E929B5A51F70FFFD00CC8A66 /* View */,
 				E9CB07881F63D23500ED32AC /* AppDelegate.h */,
@@ -185,6 +233,7 @@
 				E9CB07931F63D23500ED32AC /* LaunchScreen.storyboard */,
 				E9CB07961F63D23500ED32AC /* Info.plist */,
 				E9CB07851F63D23500ED32AC /* Supporting Files */,
+				E929B5B51F71076F00CC8A66 /* FeatureIndex.plist */,
 			);
 			path = XRAnimationSets;
 			sourceTree = "<group>";
@@ -192,6 +241,7 @@
 		E9CB07851F63D23500ED32AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E929B5BB1F710ED400CC8A66 /* PrefixHeader.pch */,
 				E9CB07861F63D23500ED32AC /* main.m */,
 			);
 			name = "Supporting Files";
@@ -223,6 +273,7 @@
 		E9CB077A1F63D23500ED32AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = XR;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = brave;
 				TargetAttributes = {
@@ -256,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E929B5B61F71076F00CC8A66 /* FeatureIndex.plist in Resources */,
 				E9CB07951F63D23500ED32AC /* LaunchScreen.storyboard in Resources */,
 				E9CB07921F63D23500ED32AC /* Assets.xcassets in Resources */,
 				E9CB07901F63D23500ED32AC /* Main.storyboard in Resources */,
@@ -272,6 +324,7 @@
 				E929B5B41F71006E00CC8A66 /* XRSuccessView.m in Sources */,
 				E929B59D1F70C9A100CC8A66 /* NSArray+MASAdditions.m in Sources */,
 				E9CB078D1F63D23500ED32AC /* ViewController.m in Sources */,
+				E929B5C61F711A9C00CC8A66 /* XRAnnularPieSingleView.m in Sources */,
 				E929B59F1F70C9A100CC8A66 /* View+MASAdditions.m in Sources */,
 				E929B5AD1F71004500CC8A66 /* XRFeatureIndexViewController.m in Sources */,
 				E929B5AC1F71004500CC8A66 /* XRAnnularPieViewController.m in Sources */,
@@ -279,6 +332,7 @@
 				E929B5981F70C9A100CC8A66 /* MASConstraint.m in Sources */,
 				E929B59E1F70C9A100CC8A66 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E929B5971F70C9A100CC8A66 /* MASCompositeConstraint.m in Sources */,
+				E929B5C31F7118A100CC8A66 /* XRAnnularPieSingleViewController.m in Sources */,
 				E9CB078A1F63D23500ED32AC /* AppDelegate.m in Sources */,
 				E9CB07871F63D23500ED32AC /* main.m in Sources */,
 				E929B5991F70C9A100CC8A66 /* MASConstraintMaker.m in Sources */,
@@ -286,7 +340,9 @@
 				E929B5B31F71006E00CC8A66 /* XRAnnularPieView.m in Sources */,
 				E929B59C1F70C9A100CC8A66 /* MASViewConstraint.m in Sources */,
 				E929B59B1F70C9A100CC8A66 /* MASViewAttribute.m in Sources */,
+				E929B5BA1F7108C300CC8A66 /* XRFeatureIndexModel.m in Sources */,
 				E929B5AE1F71004500CC8A66 /* XRSuccessViewController.m in Sources */,
+				E929B5C01F7115B100CC8A66 /* UIImage+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +399,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/XRAnimationSets/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -390,6 +448,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/XRAnimationSets/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -409,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2M39C6VA5B;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = XRAnimationSets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.null.draw.XRAnimationSets;
@@ -421,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2M39C6VA5B;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = XRAnimationSets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.null.draw.XRAnimationSets;

@@ -7,9 +7,12 @@
 //
 
 #import "XRFeatureIndexViewController.h"
-#import "XRAnnularPieViewController.h"
-#import "XRSuccessViewController.h"
+#import "XRFeatureIndexModel.h"
+
+
 @interface XRFeatureIndexViewController ()
+
+@property (nonatomic, strong) NSArray <XRFeatureIndexModel *> *indexArray;
 
 @end
 
@@ -19,16 +22,31 @@
     [super viewDidLoad];
     self.title = @"功能目录";
     
+    [self loadFeatureIndex];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadFeatureIndex {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"FeatureIndex" ofType:@"plist"];
+    NSArray *indexArray = [NSArray arrayWithContentsOfFile:filePath];
+    
+    NSMutableArray *indexArrayMutable = [NSMutableArray array];
+    for (NSDictionary *dict in indexArray) {
+        XRFeatureIndexModel *model = [XRFeatureIndexModel modelWithDict:dict];
+        [indexArrayMutable addObject:model];
+    }
+    self.indexArray = [indexArrayMutable copy];
 }
 
 #pragma mark - Table view data source
@@ -40,7 +58,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
-    return 3;
+    return self.indexArray.count;
 }
 
 
@@ -50,24 +68,22 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
     }
-    
-    cell.textLabel.text = indexPath.row == 0 ? @"环形分布图":@"成功页动画";
+    XRFeatureIndexModel *model = self.indexArray[indexPath.row];
+    cell.textLabel.text = model.featureName;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row == 0) {
-        XRAnnularPieViewController *VC = [[XRAnnularPieViewController alloc] init];
-        [self.navigationController pushViewController:VC animated:YES];
-    }else {
-        XRSuccessViewController *VC = [[XRSuccessViewController alloc] init];
-        VC.title = @"数字资产兑现";
-        VC.message = @"交易接收成功，请以明细为准。";
-        [self.navigationController pushViewController:VC animated:YES];
-    }
+    XRFeatureIndexModel *model = self.indexArray[indexPath.row];
+    UIViewController *VC = [(UIViewController *)[NSClassFromString(model.featureClass) alloc] init];
 
+    if ([VC isKindOfClass:[XRSuccessViewController class]]) {
+        VC.title = @"数字资产兑现";
+        ((XRSuccessViewController *)VC).message = @"交易接收成功，请以明细为准。";
+    }
+    
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 

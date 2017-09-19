@@ -1,34 +1,35 @@
 //
-//  XRFeatureIndexViewController.m
-//  XRAnnularPieView
+//  XRAnnularPieSingleViewController.m
+//  XRAnimationSets
 //
-//  Created by brave on 2017/9/10.
+//  Created by brave on 2017/9/19.
 //  Copyright © 2017年 brave. All rights reserved.
 //
 
-#import "XRAnnularPieViewController.h"
-#import "XRAnnularPieView.h"
+#import "XRAnnularPieSingleViewController.h"
+#import "XRAnnularPieSingleView.h"
 
-@interface XRAnnularPieViewController ()
+
+@interface XRAnnularPieSingleViewController ()
 
 @end
 
-@implementation XRAnnularPieViewController
+@implementation XRAnnularPieSingleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
         
-    XRAnnularPieView *annularView = [[XRAnnularPieView alloc] initWithFrame:CGRectMake(0, 100, 320, 320)];
-    annularView.itemArray = [NSMutableArray arrayWithObjects:@"张三", @"李四", @"宝宝", nil];
-    annularView.valueArray = [NSMutableArray arrayWithObjects:@"0.5", @"0.3", @"0.2", nil];
+    XRAnnularPieSingleView *annularView = [[XRAnnularPieSingleView alloc] initWithFrame:CGRectMake(0, 100, 320, 320)];
+    annularView.itemArray = [NSMutableArray arrayWithObjects:@"自己", nil];
+    annularView.valueArray = [NSMutableArray arrayWithObjects:@"0.6", nil];
     annularView.colorArray = [NSMutableArray arrayWithObjects:[UIColor redColor], [UIColor greenColor], [UIColor blueColor], nil];
     annularView.showAnimation = YES;
     annularView.showitemLabel = YES;
     [annularView strokePath];
     
-
+    
     [self.view addSubview:annularView];
 }
 

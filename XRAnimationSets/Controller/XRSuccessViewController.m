@@ -40,9 +40,10 @@
     [self.view addSubview:self.messageLabel];
     
     self.doneBtn = [[UIButton alloc] init];
-    [self.doneBtn setBackgroundImage:[UIImage imageNamed:@"btn_normal"] forState:UIControlStateNormal];
     [self.doneBtn setTitle:@"完成" forState:UIControlStateNormal];
     [self.doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.doneBtn.backgroundColor = XRBackgroundRedColor;
+    self.doneBtn.layer.cornerRadius = 5;
     [self.doneBtn addTarget:self action:@selector(doneBtnEvent) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.doneBtn];
     
