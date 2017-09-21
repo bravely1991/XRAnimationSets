@@ -1,14 +1,15 @@
 //
-//  XRAnnularPieSingleView.h
+//  XRSummaryPieView.h
 //  XRAnimationSets
 //
-//  Created by brave on 2017/9/19.
+//  Created by brave on 2017/9/20.
 //  Copyright © 2017年 brave. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface XRAnnularPieSingleView : UIView
+@interface XRSummaryPieView : UIView
+
 
 @property (nonatomic, strong) NSMutableArray *valueArray;
 @property (nonatomic, strong) NSMutableArray *itemArray;
@@ -25,5 +26,6 @@
 
 
 - (void)strokePath;
+
 
 @end

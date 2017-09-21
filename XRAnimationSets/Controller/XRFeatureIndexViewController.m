@@ -77,9 +77,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     XRFeatureIndexModel *model = self.indexArray[indexPath.row];
     UIViewController *VC = [(UIViewController *)[NSClassFromString(model.featureClass) alloc] init];
-
+    VC.title = model.featureName;
     if ([VC isKindOfClass:[XRSuccessViewController class]]) {
-        VC.title = @"数字资产兑现";
         ((XRSuccessViewController *)VC).message = @"交易接收成功，请以明细为准。";
     }
     

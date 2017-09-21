@@ -1,14 +1,14 @@
 //
-//  XRAnnularPieView.m
-//  XRAnnularPieView
+//  XRSummaryPieView.m
+//  XRAnimationSets
 //
-//  Created by brave on 2017/9/9.
+//  Created by brave on 2017/9/20.
 //  Copyright © 2017年 brave. All rights reserved.
 //
 
-#import "XRAnnularPieView.h"
+#import "XRSummaryPieView.h"
 
-@interface XRAnnularPieView ()
+@interface XRSummaryPieView ()
 
 @property (nonatomic, assign) CGPoint centerPoint;
 @property (nonatomic, assign) CGFloat itemLabelRadius;
@@ -20,27 +20,30 @@
 @property (nonatomic, strong) NSMutableArray *timeStartArray;
 @property (nonatomic, strong) NSMutableArray *durationArray;
 
+@property (nonatomic, strong) NSMutableArray *percentArray;
+
 @end
 
 
 #define toRad(angle) (angle * M_PI / 180)
 
-@implementation XRAnnularPieView
+@implementation XRSummaryPieView
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor yellowColor];
-        self.centerPoint = CGPointMake(frame.size.width/2, frame.size.height/2);
-        self.lineWidth = 40;
-        self.radius = 65;
+        self.lineWidth = 30;
+        self.radius = 40;
+        self.centerPoint = CGPointMake(frame.size.width - self.radius - self.lineWidth/2 - 20, frame.size.height/2);
+
         self.itemLabelRadius = self.radius + 50;
         self.startAngle = toRad(-90);
         self.totalDuration = 1.5f;
@@ -56,6 +59,7 @@
     [self removeAllSubLayers];
     
     [self drawDefaultPie];
+    [self drawPieLegend];
     [self loadSubviewLayers];
     
 }
@@ -84,14 +88,25 @@
 - (void)setValueArray:(NSMutableArray *)valueArray {
     _valueArray = valueArray;
     
+    double totalValue = 0;
+    for (NSInteger i=0; i<valueArray.count; i++) {
+        totalValue += [valueArray[i] floatValue];
+    }
+    
+    self.percentArray = [NSMutableArray array];
+    for (NSInteger i=0; i<valueArray.count; i++) {
+        NSString *percent = [NSString stringWithFormat:@"%f",[valueArray[i] floatValue]/totalValue];
+        [self.percentArray addObject:percent];
+    }
+    
     //计算开始和持续时间数组
     self.timeStartArray = [NSMutableArray array];
     self.durationArray = [NSMutableArray array];
     CGFloat startTime = 0.5f;
     [self.timeStartArray  addObject:[NSNumber numberWithFloat:startTime]];
     for (NSInteger i=0; i<valueArray.count; i++) {
-        self.durationArray[i] = [NSNumber numberWithFloat:[valueArray[i] floatValue] * self.totalDuration];
-        startTime += [valueArray[i] floatValue] * self.totalDuration;
+        self.durationArray[i] = [NSNumber numberWithFloat:[self.percentArray[i] floatValue] * self.totalDuration];
+        startTime += [self.percentArray[i] floatValue] * self.totalDuration;
         [self.timeStartArray  addObject:[NSNumber numberWithFloat:startTime]];
     }
     //计算开始和结束角度数组
@@ -101,14 +116,53 @@
     CGFloat startAngle = self.startAngle, endAngle;
     for (NSInteger i=0; i<valueArray.count; i++) {
         [self.startAngleArray  addObject:[NSNumber numberWithFloat:startAngle]];
-        endAngle = startAngle + [self.valueArray[i] floatValue] * 2 * M_PI;
+        endAngle = startAngle + [self.percentArray[i] floatValue] * 2 * M_PI;
         [self.endAngleArray  addObject:[NSNumber numberWithFloat:endAngle]];
         [self.itemLabelCenterArray addObject:[NSNumber numberWithFloat:(startAngle + (endAngle-startAngle)/2.0)]];
         
         startAngle = endAngle;
     }
+    
 }
 
+- (void)drawPieLegend {
+    CGFloat width = 100;
+    CGFloat height = 25;
+    CGFloat x = 20;
+    CGFloat y = (self.bounds.size.height - self.itemArray.count*height)/2.0;
+    for (NSInteger i = 0; i<self.itemArray.count; i++) {
+        CGFloat itemY = y + height*i;
+        
+        CGFloat colorWidthHeight = 10;
+        CGFloat maginY = (height - colorWidthHeight)/2.0;
+        UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(x, itemY+maginY, colorWidthHeight, colorWidthHeight)];
+        colorView.backgroundColor = self.colorArray[i];
+        [self addSubview:colorView];
+        
+        CGFloat labelWidth = 50;
+        CGFloat labelMaginX = 10;
+        UILabel *legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(x+colorWidthHeight+labelMaginX, itemY, labelWidth, height)];
+//        legendLabel.text = self.itemArray[i];
+        legendLabel.textColor = [UIColor darkGrayColor];
+        legendLabel.font = XRFont(14);
+        
+        NSString *item = self.itemArray[i];
+        CGSize size = [item boundingRectWithSize:CGSizeMake(labelWidth,MAXFLOAT)  options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesFontLeading  attributes:@{NSFontAttributeName :legendLabel.font}  context:nil].size;
+        CGFloat margin = (labelWidth - size.width)/(item.length - 1);
+        NSNumber *number = [NSNumber  numberWithFloat:margin];
+        NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:item];
+        [attribute  addAttribute:NSKernAttributeName value:number range:NSMakeRange(0,item.length -1 )];
+        legendLabel.attributedText = attribute;
+        [self addSubview:legendLabel];
+        
+        CGFloat valueLabelX = legendLabel.frame.origin.x + legendLabel.frame.size.width + 15;
+        UILabel *valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(valueLabelX, itemY, width, height)];
+        valueLabel.text = self.valueArray[i];
+        valueLabel.font = XRFont(14);
+        valueLabel.textColor = [UIColor blackColor];
+        [self addSubview:valueLabel];
+    }
+}
 - (void)drawDefaultPie {
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.centerPoint radius:self.radius startAngle:0 endAngle:2*M_PI clockwise:YES];
     CAShapeLayer *shapeLayer = [CAShapeLayer new];

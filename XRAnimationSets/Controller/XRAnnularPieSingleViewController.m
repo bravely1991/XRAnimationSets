@@ -21,9 +21,9 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
         
-    XRAnnularPieSingleView *annularView = [[XRAnnularPieSingleView alloc] initWithFrame:CGRectMake(0, 100, 320, 320)];
-    annularView.itemArray = [NSMutableArray arrayWithObjects:@"自己", nil];
-    annularView.valueArray = [NSMutableArray arrayWithObjects:@"0.6", nil];
+    XRAnnularPieSingleView *annularView = [[XRAnnularPieSingleView alloc] initWithFrame:CGRectMake(0, 100, XRWidth, 200)];
+    annularView.itemArray = [NSMutableArray arrayWithObjects:@"自己",@"其他", nil];
+    annularView.valueArray = [NSMutableArray arrayWithObjects:@"0.6",@"0.4", nil];
     annularView.colorArray = [NSMutableArray arrayWithObjects:[UIColor redColor], [UIColor greenColor], [UIColor blueColor], nil];
     annularView.showAnimation = YES;
     annularView.showitemLabel = YES;
