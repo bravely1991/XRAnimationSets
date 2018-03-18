@@ -28,6 +28,8 @@
 		E929B5C31F7118A100CC8A66 /* XRAnnularPieSingleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5C21F7118A100CC8A66 /* XRAnnularPieSingleViewController.m */; };
 		E929B5C61F711A9C00CC8A66 /* XRAnnularPieSingleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5C51F711A9C00CC8A66 /* XRAnnularPieSingleView.m */; };
 		E929B5CA1F72877E00CC8A66 /* XRSummaryPieView.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5C91F72877E00CC8A66 /* XRSummaryPieView.m */; };
+		E952A1FE205E73AA00138580 /* XRScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = E952A1FD205E73AA00138580 /* XRScoreView.m */; };
+		E952A201205E742700138580 /* XRScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E952A200205E742700138580 /* XRScoreViewController.m */; };
 		E9CB07871F63D23500ED32AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CB07861F63D23500ED32AC /* main.m */; };
 		E9CB078A1F63D23500ED32AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CB07891F63D23500ED32AC /* AppDelegate.m */; };
 		E9CB078D1F63D23500ED32AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CB078C1F63D23500ED32AC /* ViewController.m */; };
@@ -84,6 +86,10 @@
 		E929B5C51F711A9C00CC8A66 /* XRAnnularPieSingleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRAnnularPieSingleView.m; sourceTree = "<group>"; };
 		E929B5C81F72877E00CC8A66 /* XRSummaryPieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRSummaryPieView.h; sourceTree = "<group>"; };
 		E929B5C91F72877E00CC8A66 /* XRSummaryPieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRSummaryPieView.m; sourceTree = "<group>"; };
+		E952A1FC205E73AA00138580 /* XRScoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XRScoreView.h; sourceTree = "<group>"; };
+		E952A1FD205E73AA00138580 /* XRScoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XRScoreView.m; sourceTree = "<group>"; };
+		E952A1FF205E742700138580 /* XRScoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XRScoreViewController.h; sourceTree = "<group>"; };
+		E952A200205E742700138580 /* XRScoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XRScoreViewController.m; sourceTree = "<group>"; };
 		E9CB07821F63D23500ED32AC /* XRAnimationSets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRAnimationSets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CB07861F63D23500ED32AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E9CB07881F63D23500ED32AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -156,6 +162,8 @@
 				E929B5C71F7285F000CC8A66 /* 环形分布图 */,
 				E929B5AA1F71004500CC8A66 /* XRSuccessViewController.h */,
 				E929B5AB1F71004500CC8A66 /* XRSuccessViewController.m */,
+				E952A1FF205E742700138580 /* XRScoreViewController.h */,
+				E952A200205E742700138580 /* XRScoreViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,6 +179,8 @@
 				E929B5C91F72877E00CC8A66 /* XRSummaryPieView.m */,
 				E929B5B11F71006E00CC8A66 /* XRSuccessView.h */,
 				E929B5B21F71006E00CC8A66 /* XRSuccessView.m */,
+				E952A1FC205E73AA00138580 /* XRScoreView.h */,
+				E952A1FD205E73AA00138580 /* XRScoreView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,10 +353,12 @@
 				E929B5AC1F71004500CC8A66 /* XRAnnularPieViewController.m in Sources */,
 				E929B59A1F70C9A100CC8A66 /* MASLayoutConstraint.m in Sources */,
 				E929B5981F70C9A100CC8A66 /* MASConstraint.m in Sources */,
+				E952A1FE205E73AA00138580 /* XRScoreView.m in Sources */,
 				E929B59E1F70C9A100CC8A66 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E929B5CA1F72877E00CC8A66 /* XRSummaryPieView.m in Sources */,
 				E929B5971F70C9A100CC8A66 /* MASCompositeConstraint.m in Sources */,
 				E929B5C31F7118A100CC8A66 /* XRAnnularPieSingleViewController.m in Sources */,
+				E952A201205E742700138580 /* XRScoreViewController.m in Sources */,
 				E9CB078A1F63D23500ED32AC /* AppDelegate.m in Sources */,
 				E9CB07871F63D23500ED32AC /* main.m in Sources */,
 				E929B5991F70C9A100CC8A66 /* MASConstraintMaker.m in Sources */,

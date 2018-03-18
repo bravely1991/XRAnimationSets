@@ -20,5 +20,11 @@
 		<key>featureClass</key>
 		<string>XRSuccessViewController</string>
 	</dict>
+	<dict>
+		<key>featureName</key>
+		<string>得分显示图</string>
+		<key>featureClass</key>
+		<string>XRScoreViewController</string>
+	</dict>
 </array>
 </plist>
