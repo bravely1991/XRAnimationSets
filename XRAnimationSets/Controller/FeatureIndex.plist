@@ -26,5 +26,11 @@
 		<key>featureClass</key>
 		<string>XRScoreViewController</string>
 	</dict>
+	<dict>
+		<key>featureName</key>
+		<string>普通仪表盘</string>
+		<key>featureClass</key>
+		<string>XRInstumentBoardViewController</string>
+	</dict>
 </array>
 </plist>

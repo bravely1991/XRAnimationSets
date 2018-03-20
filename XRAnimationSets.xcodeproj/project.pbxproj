@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75DF830C2060B3F900B2B715 /* XRInstumentBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DF830B2060B3F900B2B715 /* XRInstumentBoardViewController.m */; };
 		E929B5971F70C9A100CC8A66 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B57F1F70C9A100CC8A66 /* MASCompositeConstraint.m */; };
 		E929B5981F70C9A100CC8A66 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5821F70C9A100CC8A66 /* MASConstraint.m */; };
 		E929B5991F70C9A100CC8A66 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E929B5841F70C9A100CC8A66 /* MASConstraintMaker.m */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75DF830A2060B3F900B2B715 /* XRInstumentBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XRInstumentBoardViewController.h; sourceTree = "<group>"; };
+		75DF830B2060B3F900B2B715 /* XRInstumentBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XRInstumentBoardViewController.m; sourceTree = "<group>"; };
 		E929B57E1F70C9A100CC8A66 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		E929B57F1F70C9A100CC8A66 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		E929B5801F70C9A100CC8A66 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -160,13 +163,19 @@
 		E929B5A41F70FFFD00CC8A66 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E929B5B51F71076F00CC8A66 /* FeatureIndex.plist */,
 				E929B5A81F71004500CC8A66 /* XRFeatureIndexViewController.h */,
 				E929B5A91F71004500CC8A66 /* XRFeatureIndexViewController.m */,
-				E929B5C71F7285F000CC8A66 /* 环形分布图 */,
+				E929B5C11F7118A100CC8A66 /* XRAnnularPieSingleViewController.h */,
+				E929B5C21F7118A100CC8A66 /* XRAnnularPieSingleViewController.m */,
+				E929B5A61F71004500CC8A66 /* XRAnnularPieViewController.h */,
+				E929B5A71F71004500CC8A66 /* XRAnnularPieViewController.m */,
 				E929B5AA1F71004500CC8A66 /* XRSuccessViewController.h */,
 				E929B5AB1F71004500CC8A66 /* XRSuccessViewController.m */,
 				E952A1FF205E742700138580 /* XRScoreViewController.h */,
 				E952A200205E742700138580 /* XRScoreViewController.m */,
+				75DF830A2060B3F900B2B715 /* XRInstumentBoardViewController.h */,
+				75DF830B2060B3F900B2B715 /* XRInstumentBoardViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -217,17 +226,6 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		E929B5C71F7285F000CC8A66 /* 环形分布图 */ = {
-			isa = PBXGroup;
-			children = (
-				E929B5C11F7118A100CC8A66 /* XRAnnularPieSingleViewController.h */,
-				E929B5C21F7118A100CC8A66 /* XRAnnularPieSingleViewController.m */,
-				E929B5A61F71004500CC8A66 /* XRAnnularPieViewController.h */,
-				E929B5A71F71004500CC8A66 /* XRAnnularPieViewController.m */,
-			);
-			name = "环形分布图";
-			sourceTree = "<group>";
-		};
 		E9CB07791F63D23500ED32AC = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +259,6 @@
 				E9CB07931F63D23500ED32AC /* LaunchScreen.storyboard */,
 				E9CB07961F63D23500ED32AC /* Info.plist */,
 				E9CB07851F63D23500ED32AC /* Supporting Files */,
-				E929B5B51F71076F00CC8A66 /* FeatureIndex.plist */,
 			);
 			path = XRAnimationSets;
 			sourceTree = "<group>";
@@ -350,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E929B5B41F71006E00CC8A66 /* XRSuccessView.m in Sources */,
+				75DF830C2060B3F900B2B715 /* XRInstumentBoardViewController.m in Sources */,
 				E929B59D1F70C9A100CC8A66 /* NSArray+MASAdditions.m in Sources */,
 				E9CB078D1F63D23500ED32AC /* ViewController.m in Sources */,
 				E929B5C61F711A9C00CC8A66 /* XRAnnularPieSingleView.m in Sources */,

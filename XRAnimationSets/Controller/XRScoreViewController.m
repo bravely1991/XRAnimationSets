@@ -27,9 +27,8 @@
     self.scoreView.animationDuration = 0.5f;
     [self.view addSubview:self.scoreView];
     
+    self.scoreView.score = 70;
     [self.scoreView strokePath];
-
-
 }
 
 - (void)didReceiveMemoryWarning {

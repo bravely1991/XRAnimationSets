@@ -13,39 +13,24 @@
 @property (nonatomic, assign) CGFloat radius;
 @property (nonatomic, assign) CGPoint centerPoint;
 
-@property (nonatomic, assign) CGFloat width;
-@property (nonatomic, assign) CGFloat hight;
-
 @property (nonatomic, strong) UILabel *scoreValueLabel;
 @property (nonatomic, assign) CGFloat currentScore;
+
 @end
 
-#define ToRad(angle) (angle*M_PI/180)
 
 @implementation XRScoreView
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        
         self.radius = 100;
         self.centerPoint = CGPointMake(frame.size.width/2.0, frame.size.height/2.0);
-        self.width = frame.size.width;
-        self.hight = frame.size.height;
         self.showAnimation = YES;
         self.animationDuration = 1.0f;
         self.maxScore = 100;
         self.score = 60;
-        
     }
-    
     return self;
 }
 
@@ -54,13 +39,11 @@
     
     [self drawBackGrayCircle];
     [self drawCircle];
-    
     [self loadNoteInfo];
 }
 
 - (void)drawBackGrayCircle {
     UIBezierPath *circlePath = [[UIBezierPath alloc] init];
-    //    [circlePath addArcWithCenter:self.centerPoint radius:self.radius startAngle:-M_PI_2 endAngle:-(2*M_PI+M_PI_2) clockwise:YES];
     [circlePath addArcWithCenter:self.centerPoint radius:self.radius startAngle:-M_PI_2 endAngle:2*M_PI clockwise:YES];
     
     CAShapeLayer *circleLayer = [[CAShapeLayer alloc] init];
@@ -105,11 +88,9 @@
     if (self.showAnimation) {
         CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateScore:)];
         [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        
     }else {
         self.scoreValueLabel.text = [NSString stringWithFormat:@"%.1f",self.score];
     }
-
 }
 
 - (void)updateScore:(CADisplayLink *)displayLink {
@@ -122,7 +103,6 @@
         self.scoreValueLabel.text = [NSString stringWithFormat:@"%.1f",self.currentScore];
     }
 }
-
 
 - (CABasicAnimation *)animationWithDuration:(CGFloat)duraton {
     CABasicAnimation * fillAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
